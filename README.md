@@ -26,16 +26,19 @@ You can find the sample app [in the Play Store](https://play.google.com/store/ap
 The library is hosted on jcenter. To use it, add the following to your module level `build.gradle` file's dependencies:
  
 ```gradle
-implementation 'co.zsmb:materialdrawer-kt:1.3.5'
+implementation 'co.zsmb:materialdrawer-kt:2.0.1'
 
-// required support libraries
-implementation "com.android.support:appcompat-v7:${versions.supportLib}"
-implementation "com.android.support:recyclerview-v7:${versions.supportLib}"
-implementation "com.android.support:support-annotations:${versions.supportLib}"
-implementation "com.android.support:design:${versions.supportLib}"
+//required support lib modules
+implementation "androidx.appcompat:appcompat:${versions.androidX}"
+implementation "androidx.recyclerview:recyclerview:${versions.androidX}"
+implementation "androidx.annotation:annotation:${versions.androidX}"
+implementation "com.google.android.material:material:${versions.androidX}"
+implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
 ```
 
-In general, you don't have to include the original library separately. (See the note in the FAQ.) 
+In general, you don't have to include the original library separately. (See the note in the FAQ.)
+
+***If you're not using AndroidX yet, you can use the last 1.x release of the library found [here](https://github.com/zsmb13/MaterialDrawerKt/releases/tag/1.3.7).***
 
 # Basic usage
 
@@ -106,7 +109,7 @@ drawer {
 }
 ```
 
-Note that loading images from URLs requires additional setup, see the `DrawerApplication` class in the sample app for guidance.
+*Note that loading images from URLs requires additional setup, see the [Image loading section](#image-loading) of this document or the `DrawerApplication` class in the sample app for guidance.*
 
 ### Footers
 
