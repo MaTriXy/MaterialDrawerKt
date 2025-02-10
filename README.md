@@ -1,11 +1,11 @@
 # MaterialDrawerKt 
 
-[![Build Status](https://travis-ci.org/zsmb13/MaterialDrawerKt.svg?branch=master)](https://travis-ci.org/zsmb13/MaterialDrawerKt)
+[![Build Status](https://travis-ci.org/zsmb13/MaterialDrawerKt.svg?branch=main)](https://travis-ci.org/zsmb13/MaterialDrawerKt)
 [![Bintray](https://img.shields.io/bintray/v/zsmb13/MaterialDrawerKt/MaterialDrawerKt.svg?maxAge=86400)](https://bintray.com/zsmb13/MaterialDrawerKt/MaterialDrawerKt)
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MaterialDrawerKt-orange.svg?style=flat)](https://android-arsenal.com/details/1/5693) 
 
-<img src="https://raw.githubusercontent.com/zsmb13/MaterialDrawerKt/master/docs/github-banner.png">
+<img src="https://raw.githubusercontent.com/zsmb13/MaterialDrawerKt/main/docs/github-banner.png">
 
 Create navigation drawers in your Activities and Fragments without having to write any XML, in pure Kotlin code, with access to all the features of the original library: all sorts of menu items, badges, account headers, and more.
 
@@ -17,26 +17,28 @@ This library is a Kotlin DSL wrapper around the [mikepenz/MaterialDrawer](https:
 
 # Sample app
 
-You can find the sample app [in the Play Store](https://play.google.com/store/apps/details?id=co.zsmb.materialdrawerktexample), and its source code in the [app module](https://github.com/zsmb13/MaterialDrawerKt/tree/master/app) of the project.
+You can find the sample app [in the Play Store](https://play.google.com/store/apps/details?id=co.zsmb.materialdrawerktexample), and its source code in the [app module](https://github.com/zsmb13/MaterialDrawerKt/tree/main/app) of the project.
 
-<img src="https://raw.githubusercontent.com/zsmb13/MaterialDrawerKt/master/docs/github-screens.png">
+<img src="https://raw.githubusercontent.com/zsmb13/MaterialDrawerKt/main/docs/github-screens.png">
 
 # Setup
 
-The library is hosted on jcenter. To use it, add the following to your module level `build.gradle` file's dependencies:
+The library is hosted on `mavenCentral()`. To use it, add the following to your module level `build.gradle` file's dependencies:
  
 ```gradle
-implementation 'co.zsmb:materialdrawer-kt:2.0.1'
+implementation 'co.zsmb:materialdrawer-kt:3.0.0'
 
-//required support lib modules
-implementation "androidx.appcompat:appcompat:${versions.androidX}"
-implementation "androidx.recyclerview:recyclerview:${versions.androidX}"
-implementation "androidx.annotation:annotation:${versions.androidX}"
-implementation "com.google.android.material:material:${versions.androidX}"
+// required support lib modules
+implementation "androidx.appcompat:appcompat:${versions.appcompat}"
+implementation "androidx.recyclerview:recyclerview:${versions.recyclerView}"
+implementation "androidx.annotation:annotation:${versions.annotation}"
+implementation "com.google.android.material:material:${versions.material}"
 implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
 ```
 
-In general, you don't have to include the original library separately. (See the note in the FAQ.)
+In general, you don't have to include the original library separately. (See the note in the [FAQ](#faq).)
+
+***If you want to use the pre-Kotlin version of the base library for some reason, you can use the last 2.x release of the library found [here](https://github.com/zsmb13/MaterialDrawerKt/releases/tag/2.0.1).***
 
 ***If you're not using AndroidX yet, you can use the last 1.x release of the library found [here](https://github.com/zsmb13/MaterialDrawerKt/releases/tag/1.3.7).***
 
@@ -215,7 +217,7 @@ primaryItem("Item name") {
  
 Calls to `.withXyz()` functions are replaced with properties that you can set. For a complete reference of the wrapper methods and properties, see the [list in the wiki](https://github.com/zsmb13/MaterialDrawerKt/wiki/Wrappers). 
 
-Very few of these are readable. If you want to read these at build time for some reason, check the documentation. Non readable properties should be deprecated and not compile, but if they do, they will throw a `NonReadablePropertyException` if you attempt to read their value.
+Very few of these are readable. If you want to read these at build time for some reason, check the documentation. Non-readable properties should be deprecated and not compile, but if they do, they will throw a `NonReadablePropertyException` if you attempt to read their value.
 
 For an example...
 
@@ -392,7 +394,7 @@ primaryItem("Hello") {
 
 # License
 
-    Copyright 2018 Marton Braun
+    Copyright 2020 Marton Braun
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

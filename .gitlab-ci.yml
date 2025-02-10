@@ -22,7 +22,7 @@ debug build:
   script:
     - ./gradlew assembleDebug
   except:
-    - master
+    - main
 
 library release build:
   stage: build
@@ -34,16 +34,18 @@ library release build:
     paths:
       - library/build*
   only:
-    - master
+    - main
 
-library upload to Bintray:
+library upload to MavenCentral:
   stage: release
   tags:
     - docker
+  before_script:
+    - echo $GPG_KEY_CONTENTS | base64 -d > secret.gpg
   script:
-    - ./gradlew generatePomFileForReleasePublication bintrayUpload
+    - ./gradlew library:publishReleasePublicationToSonatypeRepository closeAndReleaseRepository
   dependencies:
     - library release build
   only:
-    - master
+    - main
   when: manual
